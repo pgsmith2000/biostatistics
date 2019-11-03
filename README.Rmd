@@ -14,12 +14,41 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Analyses with Data from Biostatistics With R by Babak Shahbaba
 
-
 ### Analysis of BodyTemperature Data Set
 
-
 ```{r echo=TRUE, message=TRUE, warning=TRUE}
-source("BodyTemperature.R", echo = TRUE)
+source("Dependencies.R", echo = TRUE)
+source("001_Load data and create variables.R", echo = TRUE)
 
 ```
 
+### Documentation and Data Dictionary
+
+```{r echo=TRUE, message=TRUE, warning=TRUE}
+source("002_Create data dictionary.R", echo = TRUE)
+
+```
+
+### Plot variables
+
+```{r echo=TRUE, message=TRUE, warning=TRUE}
+source("100_Plot individual variables.R", echo = TRUE)
+source("105_Variable boxplots.R", echo = TRUE)
+source("110_Two variable plots.R", echo = TRUE)
+source("115_Plot created variables 1.R", echo = TRUE)
+
+```
+
+### Regression Model 1
+
+```{r echo=TRUE, message=TRUE, warning=TRUE}
+source("200_Regression model 1.R", echo = TRUE)
+
+```
+
+### Step-wise Regressions
+
+```{r echo=TRUE, message=TRUE, warning=TRUE}
+source("210_Additional regression models.R", echo = TRUE)
+
+```
