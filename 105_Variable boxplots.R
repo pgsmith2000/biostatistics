@@ -23,3 +23,4 @@ p7 <- p7 + geom_jitter(aes(color=Gender), size=2) +
 
 # print the plots in 2 x 2 format
 grid.arrange(p5, p6, p7, nrow=2, ncol=3)
+

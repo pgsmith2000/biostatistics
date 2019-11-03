@@ -34,7 +34,7 @@ table(BodyTemperature$AGEGRP, BodyTemperature$AGE4)
 pretty_breaks(3)(BodyTemperature$HeartRate)
 
 a <- ggplot(BodyTemperature, aes(HeartRate))
-a + geom_histogram(aes(color=HeartRate), color="darkblue", fill="steelblue") +
+a + geom_histogram(aes(color=HeartRate), color="black", fill="#0CBDBD") +
   geom_vline(xintercept = 70) +
   geom_vline(xintercept = 80) 
 

@@ -178,8 +178,8 @@ source("001_Load data and create variables.R", echo = TRUE)
     ## 
     ## > a <- ggplot(BodyTemperature, aes(HeartRate))
     ## 
-    ## > a + geom_histogram(aes(color = HeartRate), color = "darkblue", 
-    ## +     fill = "steelblue") + geom_vline(xintercept = 70) + geom_vline(xintercept = 80 .... [TRUNCATED]
+    ## > a + geom_histogram(aes(color = HeartRate), color = "black", 
+    ## +     fill = "#0CBDBD") + geom_vline(xintercept = 70) + geom_vline(xintercept = 80)
 
     ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
@@ -367,27 +367,26 @@ source("100_Plot individual variables.R", echo = TRUE)
     ## > BodyTemperature <- read.csv(file = "./data/bodytemperature_data.csv", 
     ## +     header = TRUE, sep = ",")
     ## 
-    ## > p1 <- ggplot(BodyTemperature, aes(Gender))
+    ## > p1 <- ggplot(BodyTemperature, aes(Gender, fill = Gender))
     ## 
-    ## > p1 <- p1 + geom_bar(fill = "steelblue", color = "steelblue") + 
-    ## +     theme_minimal() + labs(title = "Bar Chart of Gender")
+    ## > p1 <- p1 + geom_bar(aes(Gender), color = "black") + 
+    ## +     scale_fill_manual(values = c("#E8706A", "#0CBDBD")) + theme_minimal() + 
+    ## +     labs(title .... [TRUNCATED] 
     ## 
     ## > p2 <- ggplot(BodyTemperature, aes(Age))
     ## 
-    ## > p2 <- p2 + geom_histogram(aes(color = Age), color = "darkblue", 
-    ## +     fill = "steelblue") + theme_minimal() + labs(title = "Histogram of Age")
+    ## > p2 <- p2 + geom_histogram(aes(color = Age), color = "black", 
+    ## +     fill = "#0CBDBD") + theme_minimal() + labs(title = "Histogram of Age")
     ## 
     ## > p3 <- ggplot(BodyTemperature, aes(HeartRate))
     ## 
     ## > p3 <- p3 + geom_histogram(aes(color = HeartRate), 
-    ## +     color = "darkblue", fill = "steelblue") + theme_minimal() + 
-    ## +     labs(title = "Histogram  ..." ... [TRUNCATED] 
+    ## +     color = "black", fill = "#0CBDBD") + theme_minimal() + labs(title = "Histogram of HeartRate ..." ... [TRUNCATED] 
     ## 
     ## > p4 <- ggplot(BodyTemperature, aes(Temperature))
     ## 
     ## > p4 <- p4 + geom_histogram(aes(color = Temperature), 
-    ## +     color = "darkblue", fill = "steelblue") + theme_minimal() + 
-    ## +     labs(title = "Histogra ..." ... [TRUNCATED] 
+    ## +     color = "black", fill = "#0CBDBD") + theme_minimal() + labs(title = "Histogram of Tempera ..." ... [TRUNCATED] 
     ## 
     ## > grid.arrange(p1, p2, p3, p4, nrow = 2, ncol = 2)
 
@@ -469,12 +468,12 @@ source("115_Plot created variables 1.R", echo = TRUE)
     ## 
     ## > p11 <- ggplot(BodyTemperature, aes(AGEGRP))
     ## 
-    ## > p11 <- p11 + geom_bar(fill = "steelblue", color = "steelblue") + 
+    ## > p11 <- p11 + geom_bar(color = "black", fill = "#0CBDBD") + 
     ## +     theme_minimal() + labs(title = "Bar Chart of Age Groups")
     ## 
     ## > p12 <- ggplot(BodyTemperature, aes(HEARTRATEGRP))
     ## 
-    ## > p12 <- p12 + geom_bar(fill = "steelblue", color = "steelblue") + 
+    ## > p12 <- p12 + geom_bar(color = "black", fill = "#0CBDBD") + 
     ## +     theme_minimal() + labs(title = "Bar Chart of Heart Rate Groups")
     ## 
     ## > grid.arrange(p11, p12, nrow = 2, ncol = 2)
