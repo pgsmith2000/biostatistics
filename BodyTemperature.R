@@ -79,7 +79,7 @@ p2 <- p2 + geom_histogram(aes(color=Age), color="darkblue", fill="steelblue") +
 
 # HeartRate
 p3 <- ggplot(BodyTemperature, aes(HeartRate))
-p3 + geom_histogram(aes(color=HeartRate), color="darkblue", fill="steelblue") +
+p3 <- p3 + geom_histogram(aes(color=HeartRate), color="darkblue", fill="steelblue") +
   theme_minimal() +
   labs(title="Histogram of HeartRate")
 

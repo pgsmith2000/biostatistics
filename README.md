@@ -249,13 +249,9 @@ source("BodyTemperature.R", echo = TRUE)
     ## 
     ## > p3 <- ggplot(BodyTemperature, aes(HeartRate))
     ## 
-    ## > p3 + geom_histogram(aes(color = HeartRate), color = "darkblue", 
-    ## +     fill = "steelblue") + theme_minimal() + labs(title = "Histogram of HeartRate" .... [TRUNCATED]
-
-    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-
-![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
-
+    ## > p3 <- p3 + geom_histogram(aes(color = HeartRate), 
+    ## +     color = "darkblue", fill = "steelblue") + theme_minimal() + 
+    ## +     labs(title = "Histogram  ..." ... [TRUNCATED] 
     ## 
     ## > p4 <- ggplot(BodyTemperature, aes(Temperature))
     ## 
@@ -268,8 +264,9 @@ source("BodyTemperature.R", echo = TRUE)
     ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
     ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
-![](README_files/figure-gfm/unnamed-chunk-1-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
     ## 
     ## > pretty_breaks(3)(BodyTemperature$HeartRate)
@@ -282,7 +279,7 @@ source("BodyTemperature.R", echo = TRUE)
 
     ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
-![](README_files/figure-gfm/unnamed-chunk-1-3.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-1-2.png)<!-- -->
 
     ## 
     ## > BodyTemperature$HEARTRATEGRP <- 9
@@ -359,7 +356,7 @@ source("BodyTemperature.R", echo = TRUE)
     ## 
     ## > grid.arrange(p5, p6, p7, nrow = 2, ncol = 3)
 
-![](README_files/figure-gfm/unnamed-chunk-1-4.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-1-3.png)<!-- -->
 
     ## 
     ## > p8 <- ggplot(BodyTemperature, aes(x = Age, y = HeartRate, 
@@ -384,7 +381,7 @@ source("BodyTemperature.R", echo = TRUE)
     ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
     ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 
-![](README_files/figure-gfm/unnamed-chunk-1-5.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-1-4.png)<!-- -->
 
     ## 
     ## > model1 <- lm(Temperature ~ Gender + Age + HeartRate, 
@@ -415,14 +412,14 @@ source("BodyTemperature.R", echo = TRUE)
     ## 
     ## > coefplot(model1)
 
-![](README_files/figure-gfm/unnamed-chunk-1-6.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-1-5.png)<!-- -->
 
     ## 
     ## > layout(matrix(c(1, 2, 3, 4), 2, 2))
     ## 
     ## > plot(model1, main = "Linear Regression Model")
 
-![](README_files/figure-gfm/unnamed-chunk-1-7.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-1-6.png)<!-- -->
 
     ## 
     ## > gvmodel <- gvlma(model1)
@@ -510,7 +507,7 @@ source("BodyTemperature.R", echo = TRUE)
     ## 
     ## > grid.arrange(p11, p12, nrow = 2, ncol = 2)
 
-![](README_files/figure-gfm/unnamed-chunk-1-8.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-1-7.png)<!-- -->
 
     ## 
     ## > model3 <- lm(Temperature ~ Gender + AGE1 + AGE2 + 
@@ -572,11 +569,11 @@ source("BodyTemperature.R", echo = TRUE)
     ## 
     ## > coefplot(model4)
 
-![](README_files/figure-gfm/unnamed-chunk-1-9.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-1-8.png)<!-- -->
 
     ## 
     ## > layout(matrix(c(1, 2, 3, 4), 2, 2))
     ## 
     ## > plot(model3, main = "Linear Regression Model")
 
-![](README_files/figure-gfm/unnamed-chunk-1-10.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-1-9.png)<!-- -->
