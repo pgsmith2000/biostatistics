@@ -1,0 +1,25 @@
+---
+title: "Analyses with Data from Biostatistics With R"
+author: "Paul G. Smith"
+date: '`r paste("First created on Nov 1, 2019. Updated on", format(Sys.Date(),"%b %d, %Y"))`'
+output: 
+  github_document:
+    toc: false
+    html_preview: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Analyses with Data from Biostatistics With R by Babak Shahbaba
+
+
+### Analysis of BodyTemperature Data Set
+
+
+```{r echo=TRUE, message=TRUE, warning=TRUE}
+source("BodyTemperature.R", echo = TRUE)
+
+```
+
