@@ -1,7 +1,7 @@
 Analyses with Data from Biostatistics With R
 ================
 Paul G. Smith
-First created on Nov 1, 2019. Updated on Nov 04, 2019
+First created on Nov 1, 2019. Updated on Nov 05, 2019
 
 ## Analyses with Data from Biostatistics With R by Babak Shahbaba
 
@@ -60,15 +60,55 @@ source("Dependencies.R", echo = TRUE)
     ##     alpha, rescale
 
     ## 
-    ## > library(ggplot2)
+    ## > library(tidyverse)
+
+    ## -- Attaching packages ---------------------------------------------------------------------------- tidyverse 1.2.1 --
+
+    ## v tibble  2.1.3     v purrr   0.3.3
+    ## v tidyr   1.0.0     v dplyr   0.8.3
+    ## v readr   1.3.1     v stringr 1.4.0
+    ## v tibble  2.1.3     v forcats 0.4.0
+
+    ## -- Conflicts ------------------------------------------------------------------------------- tidyverse_conflicts() --
+    ## x psych::%+%()        masks ggplot2::%+%()
+    ## x psych::alpha()      masks ggplot2::alpha(), scales::alpha()
+    ## x readr::col_factor() masks scales::col_factor()
+    ## x purrr::discard()    masks scales::discard()
+    ## x dplyr::filter()     masks stats::filter()
+    ## x dplyr::lag()        masks stats::lag()
+    ## x dplyr::src()        masks Hmisc::src()
+    ## x dplyr::summarize()  masks Hmisc::summarize()
+
     ## 
     ## > library(gridExtra)
+
+    ## 
+    ## Attaching package: 'gridExtra'
+
+    ## The following object is masked from 'package:dplyr':
+    ## 
+    ##     combine
+
     ## 
     ## > library(arm)
 
     ## Loading required package: MASS
 
+    ## 
+    ## Attaching package: 'MASS'
+
+    ## The following object is masked from 'package:dplyr':
+    ## 
+    ##     select
+
     ## Loading required package: Matrix
+
+    ## 
+    ## Attaching package: 'Matrix'
+
+    ## The following objects are masked from 'package:tidyr':
+    ## 
+    ##     expand, pack, unpack
 
     ## Loading required package: lme4
 
