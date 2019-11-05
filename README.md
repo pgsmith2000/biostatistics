@@ -1,7 +1,7 @@
 Analyses with Data from Biostatistics With R
 ================
 Paul G. Smith
-First created on Nov 1, 2019. Updated on Nov 03, 2019
+First created on Nov 1, 2019. Updated on Nov 04, 2019
 
 ## Analyses with Data from Biostatistics With R by Babak Shahbaba
 
@@ -103,22 +103,32 @@ source("001_Load data and create variables.R", echo = TRUE)
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
     ##   21.00   33.75   37.00   37.62   42.00   50.00 
     ## 
+    ## > pretty_breaks(2)(BodyTemperature$Age)
+    ## [1] 20 40 60
+    ## 
+    ## > a <- ggplot(BodyTemperature, aes(Age))
+    ## 
+    ## > a + geom_histogram(aes(color = Age), color = "black", 
+    ## +     fill = "#0CBDBD") + geom_vline(xintercept = 35) + geom_vline(xintercept = 40)
+
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+
+![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+
+    ## 
     ## > BodyTemperature$AGEGRP <- 9
     ## 
-    ## > BodyTemperature$AGEGRP[BodyTemperature$Age < 25] <- 1
-    ## 
-    ## > BodyTemperature$AGEGRP[BodyTemperature$Age > 24 & 
-    ## +     BodyTemperature$Age < 35] <- 2
+    ## > BodyTemperature$AGEGRP[BodyTemperature$Age < 35] <- 1
     ## 
     ## > BodyTemperature$AGEGRP[BodyTemperature$Age > 34 & 
-    ## +     BodyTemperature$Age < 45] <- 3
+    ## +     BodyTemperature$Age < 41] <- 2
     ## 
-    ## > BodyTemperature$AGEGRP[BodyTemperature$Age > 44] <- 4
+    ## > BodyTemperature$AGEGRP[BodyTemperature$Age > 40] <- 3
     ## 
     ## > table(BodyTemperature$AGEGRP)
     ## 
-    ##  1  2  3  4 
-    ##  3 30 52 15 
+    ##  1  2  3 
+    ## 33 31 36 
     ## 
     ## > BodyTemperature$AGEGRP <- as.factor(BodyTemperature$AGEGRP)
     ## 
@@ -128,62 +138,45 @@ source("001_Load data and create variables.R", echo = TRUE)
     ## 
     ## > BodyTemperature$AGE3 <- 0
     ## 
-    ## > BodyTemperature$AGE4 <- 0
+    ## > BodyTemperature$AGE1[BodyTemperature$Age < 35] <- 1
     ## 
-    ## > BodyTemperature$AGE1[BodyTemperature$Age < 25] <- 1
+    ## > BodyTemperature$AGE2[BodyTemperature$Age > 34 & BodyTemperature$Age < 
+    ## +     41] <- 1
     ## 
-    ## > BodyTemperature$AGE2[BodyTemperature$Age > 24 & BodyTemperature$Age < 
-    ## +     35] <- 1
-    ## 
-    ## > BodyTemperature$AGE3[BodyTemperature$Age > 34 & BodyTemperature$Age < 
-    ## +     45] <- 1
-    ## 
-    ## > BodyTemperature$AGE4[BodyTemperature$Age > 44 & BodyTemperature$Age < 
-    ## +     55] <- 1
+    ## > BodyTemperature$AGE3[BodyTemperature$Age > 40] <- 1
     ## 
     ## > table(BodyTemperature$AGEGRP, BodyTemperature$AGE1)
     ##    
     ##      0  1
-    ##   1  0  3
-    ##   2 30  0
-    ##   3 52  0
-    ##   4 15  0
+    ##   1  0 33
+    ##   2 31  0
+    ##   3 36  0
     ## 
     ## > table(BodyTemperature$AGEGRP, BodyTemperature$AGE2)
     ##    
     ##      0  1
-    ##   1  3  0
-    ##   2  0 30
-    ##   3 52  0
-    ##   4 15  0
+    ##   1 33  0
+    ##   2  0 31
+    ##   3 36  0
     ## 
     ## > table(BodyTemperature$AGEGRP, BodyTemperature$AGE3)
     ##    
     ##      0  1
-    ##   1  3  0
-    ##   2 30  0
-    ##   3  0 52
-    ##   4 15  0
+    ##   1 33  0
+    ##   2 31  0
+    ##   3  0 36
     ## 
-    ## > table(BodyTemperature$AGEGRP, BodyTemperature$AGE4)
-    ##    
-    ##      0  1
-    ##   1  3  0
-    ##   2 30  0
-    ##   3 52  0
-    ##   4  0 15
-    ## 
-    ## > pretty_breaks(3)(BodyTemperature$HeartRate)
+    ## > pretty_breaks(2)(BodyTemperature$HeartRate)
     ## [1] 60 70 80 90
     ## 
-    ## > a <- ggplot(BodyTemperature, aes(HeartRate))
+    ## > b <- ggplot(BodyTemperature, aes(HeartRate))
     ## 
-    ## > a + geom_histogram(aes(color = HeartRate), color = "black", 
-    ## +     fill = "#0CBDBD") + geom_vline(xintercept = 70) + geom_vline(xintercept = 80)
+    ## > b + geom_histogram(aes(color = HeartRate), color = "black", 
+    ## +     fill = "#0CBDBD") + geom_vline(xintercept = 70) + geom_vline(xintercept = 76)
 
     ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
-![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-1-2.png)<!-- -->
 
     ## 
     ## > BodyTemperature$HEARTRATEGRP <- 9
@@ -192,15 +185,15 @@ source("001_Load data and create variables.R", echo = TRUE)
     ## +     71] <- 1
     ## 
     ## > BodyTemperature$HEARTRATEGRP[BodyTemperature$HeartRate > 
-    ## +     70 & BodyTemperature$HeartRate < 81] <- 2
+    ## +     70 & BodyTemperature$HeartRate < 77] <- 2
     ## 
     ## > BodyTemperature$HEARTRATEGRP[BodyTemperature$HeartRate > 
-    ## +     80] <- 3
+    ## +     76] <- 3
     ## 
     ## > table(BodyTemperature$HEARTRATEGRP)
     ## 
     ##  1  2  3 
-    ## 31 60  9 
+    ## 31 37 32 
     ## 
     ## > BodyTemperature$HEARTRATEGRP <- as.factor(BodyTemperature$HEARTRATEGRP)
     ## 
@@ -223,38 +216,37 @@ source("001_Load data and create variables.R", echo = TRUE)
     ##    
     ##      0  1
     ##   1  0 31
-    ##   2 60  0
-    ##   3  9  0
+    ##   2 37  0
+    ##   3 32  0
     ## 
     ## > table(BodyTemperature$HEARTRATEGRP, BodyTemperature$HEART2)
     ##    
     ##      0  1
     ##   1 31  0
-    ##   2  0 60
-    ##   3  9  0
+    ##   2  0 37
+    ##   3 32  0
     ## 
     ## > table(BodyTemperature$HEARTRATEGRP, BodyTemperature$HEART3)
     ##    
     ##      0  1
     ##   1 31  0
-    ##   2 60  0
-    ##   3  0  9
+    ##   2 37  0
+    ##   3  0 32
     ## 
     ## > str(BodyTemperature)
-    ## 'data.frame':    100 obs. of  13 variables:
+    ## 'data.frame':    100 obs. of  12 variables:
     ##  $ Gender      : Factor w/ 2 levels "F","M": 2 2 2 1 1 2 1 1 1 2 ...
     ##  $ Age         : int  33 32 42 33 26 37 32 45 31 49 ...
     ##  $ HeartRate   : int  69 72 68 75 68 79 71 73 77 81 ...
     ##  $ Temperature : num  97 98.8 96.2 97.8 98.8 ...
-    ##  $ AGEGRP      : Factor w/ 4 levels "1","2","3","4": 2 2 3 2 2 3 2 4 2 4 ...
-    ##  $ AGE1        : num  0 0 0 0 0 0 0 0 0 0 ...
-    ##  $ AGE2        : num  1 1 0 1 1 0 1 0 1 0 ...
-    ##  $ AGE3        : num  0 0 1 0 0 1 0 0 0 0 ...
-    ##  $ AGE4        : num  0 0 0 0 0 0 0 1 0 1 ...
-    ##  $ HEARTRATEGRP: Factor w/ 3 levels "1","2","3": 1 2 1 2 1 2 2 2 2 3 ...
+    ##  $ AGEGRP      : Factor w/ 3 levels "1","2","3": 1 1 3 1 1 2 1 3 1 3 ...
+    ##  $ AGE1        : num  1 1 0 1 1 0 1 0 1 0 ...
+    ##  $ AGE2        : num  0 0 0 0 0 1 0 0 0 0 ...
+    ##  $ AGE3        : num  0 0 1 0 0 0 0 1 0 1 ...
+    ##  $ HEARTRATEGRP: Factor w/ 3 levels "1","2","3": 1 2 1 2 1 3 2 2 3 3 ...
     ##  $ HEART1      : num  1 0 1 0 1 0 0 0 0 0 ...
-    ##  $ HEART2      : num  0 1 0 1 0 1 1 1 1 0 ...
-    ##  $ HEART3      : num  0 0 0 0 0 0 0 0 0 1 ...
+    ##  $ HEART2      : num  0 1 0 1 0 0 1 1 0 0 ...
+    ##  $ HEART3      : num  0 0 0 0 0 1 0 0 1 1 ...
     ## 
     ## > write.csv(BodyTemperature, file = "./data/bodytemperature_data.csv", 
     ## +     row.names = FALSE)
@@ -270,43 +262,42 @@ source("002_Create data dictionary.R", echo = TRUE)
     ## +     header = TRUE, sep = ",")
     ## 
     ## > str(BodyTemperature)
-    ## 'data.frame':    100 obs. of  13 variables:
+    ## 'data.frame':    100 obs. of  12 variables:
     ##  $ Gender      : Factor w/ 2 levels "F","M": 2 2 2 1 1 2 1 1 1 2 ...
     ##  $ Age         : int  33 32 42 33 26 37 32 45 31 49 ...
     ##  $ HeartRate   : int  69 72 68 75 68 79 71 73 77 81 ...
     ##  $ Temperature : num  97 98.8 96.2 97.8 98.8 ...
-    ##  $ AGEGRP      : int  2 2 3 2 2 3 2 4 2 4 ...
-    ##  $ AGE1        : int  0 0 0 0 0 0 0 0 0 0 ...
-    ##  $ AGE2        : int  1 1 0 1 1 0 1 0 1 0 ...
-    ##  $ AGE3        : int  0 0 1 0 0 1 0 0 0 0 ...
-    ##  $ AGE4        : int  0 0 0 0 0 0 0 1 0 1 ...
-    ##  $ HEARTRATEGRP: int  1 2 1 2 1 2 2 2 2 3 ...
+    ##  $ AGEGRP      : int  1 1 3 1 1 2 1 3 1 3 ...
+    ##  $ AGE1        : int  1 1 0 1 1 0 1 0 1 0 ...
+    ##  $ AGE2        : int  0 0 0 0 0 1 0 0 0 0 ...
+    ##  $ AGE3        : int  0 0 1 0 0 0 0 1 0 1 ...
+    ##  $ HEARTRATEGRP: int  1 2 1 2 1 3 2 2 3 3 ...
     ##  $ HEART1      : int  1 0 1 0 1 0 0 0 0 0 ...
-    ##  $ HEART2      : int  0 1 0 1 0 1 1 1 1 0 ...
-    ##  $ HEART3      : int  0 0 0 0 0 0 0 0 0 1 ...
+    ##  $ HEART2      : int  0 1 0 1 0 0 1 1 0 0 ...
+    ##  $ HEART3      : int  0 0 0 0 0 1 0 0 1 1 ...
     ## 
     ## > summary(BodyTemperature)
     ##  Gender      Age          HeartRate      Temperature         AGEGRP    
     ##  F:51   Min.   :21.00   Min.   :61.00   Min.   : 96.20   Min.   :1.00  
-    ##  M:49   1st Qu.:33.75   1st Qu.:69.00   1st Qu.: 97.70   1st Qu.:2.00  
-    ##         Median :37.00   Median :73.00   Median : 98.30   Median :3.00  
-    ##         Mean   :37.62   Mean   :73.66   Mean   : 98.33   Mean   :2.79  
+    ##  M:49   1st Qu.:33.75   1st Qu.:69.00   1st Qu.: 97.70   1st Qu.:1.00  
+    ##         Median :37.00   Median :73.00   Median : 98.30   Median :2.00  
+    ##         Mean   :37.62   Mean   :73.66   Mean   : 98.33   Mean   :2.03  
     ##         3rd Qu.:42.00   3rd Qu.:78.00   3rd Qu.: 98.90   3rd Qu.:3.00  
-    ##         Max.   :50.00   Max.   :87.00   Max.   :101.30   Max.   :4.00  
-    ##       AGE1           AGE2          AGE3           AGE4       HEARTRATEGRP 
-    ##  Min.   :0.00   Min.   :0.0   Min.   :0.00   Min.   :0.00   Min.   :1.00  
-    ##  1st Qu.:0.00   1st Qu.:0.0   1st Qu.:0.00   1st Qu.:0.00   1st Qu.:1.00  
-    ##  Median :0.00   Median :0.0   Median :1.00   Median :0.00   Median :2.00  
-    ##  Mean   :0.03   Mean   :0.3   Mean   :0.52   Mean   :0.15   Mean   :1.78  
-    ##  3rd Qu.:0.00   3rd Qu.:1.0   3rd Qu.:1.00   3rd Qu.:0.00   3rd Qu.:2.00  
-    ##  Max.   :1.00   Max.   :1.0   Max.   :1.00   Max.   :1.00   Max.   :3.00  
-    ##      HEART1         HEART2        HEART3    
-    ##  Min.   :0.00   Min.   :0.0   Min.   :0.00  
-    ##  1st Qu.:0.00   1st Qu.:0.0   1st Qu.:0.00  
-    ##  Median :0.00   Median :1.0   Median :0.00  
-    ##  Mean   :0.31   Mean   :0.6   Mean   :0.09  
-    ##  3rd Qu.:1.00   3rd Qu.:1.0   3rd Qu.:0.00  
-    ##  Max.   :1.00   Max.   :1.0   Max.   :1.00  
+    ##         Max.   :50.00   Max.   :87.00   Max.   :101.30   Max.   :3.00  
+    ##       AGE1           AGE2           AGE3       HEARTRATEGRP 
+    ##  Min.   :0.00   Min.   :0.00   Min.   :0.00   Min.   :1.00  
+    ##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0.00   1st Qu.:1.00  
+    ##  Median :0.00   Median :0.00   Median :0.00   Median :2.00  
+    ##  Mean   :0.33   Mean   :0.31   Mean   :0.36   Mean   :2.01  
+    ##  3rd Qu.:1.00   3rd Qu.:1.00   3rd Qu.:1.00   3rd Qu.:3.00  
+    ##  Max.   :1.00   Max.   :1.00   Max.   :1.00   Max.   :3.00  
+    ##      HEART1         HEART2         HEART3    
+    ##  Min.   :0.00   Min.   :0.00   Min.   :0.00  
+    ##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0.00  
+    ##  Median :0.00   Median :0.00   Median :0.00  
+    ##  Mean   :0.31   Mean   :0.37   Mean   :0.32  
+    ##  3rd Qu.:1.00   3rd Qu.:1.00   3rd Qu.:1.00  
+    ##  Max.   :1.00   Max.   :1.00   Max.   :1.00  
     ## 
     ## > sapply(BodyTemperature[2:4], function(x) c(`Stand dev` = sd(x), 
     ## +     Mean = mean(x, na.rm = TRUE), n = length(x), Median = median(x), 
@@ -333,29 +324,27 @@ source("002_Create data dictionary.R", echo = TRUE)
     ## Age             2 100 37.62 6.43   37.0   37.76 5.93 21.0  50.0  29.0
     ## HeartRate       3 100 73.66 5.31   73.0   73.60 5.93 61.0  87.0  26.0
     ## Temperature     4 100 98.33 0.96   98.3   98.29 0.89 96.2 101.3   5.1
-    ## AGEGRP          5 100  2.79 0.73    3.0    2.77 0.00  1.0   4.0   3.0
-    ## AGE1            6 100  0.03 0.17    0.0    0.00 0.00  0.0   1.0   1.0
-    ## AGE2            7 100  0.30 0.46    0.0    0.25 0.00  0.0   1.0   1.0
-    ## AGE3            8 100  0.52 0.50    1.0    0.52 0.00  0.0   1.0   1.0
-    ## AGE4            9 100  0.15 0.36    0.0    0.06 0.00  0.0   1.0   1.0
-    ## HEARTRATEGRP   10 100  1.78 0.60    2.0    1.74 0.00  1.0   3.0   2.0
-    ## HEART1         11 100  0.31 0.46    0.0    0.26 0.00  0.0   1.0   1.0
-    ## HEART2         12 100  0.60 0.49    1.0    0.62 0.00  0.0   1.0   1.0
-    ## HEART3         13 100  0.09 0.29    0.0    0.00 0.00  0.0   1.0   1.0
+    ## AGEGRP          5 100  2.03 0.83    2.0    2.04 1.48  1.0   3.0   2.0
+    ## AGE1            6 100  0.33 0.47    0.0    0.29 0.00  0.0   1.0   1.0
+    ## AGE2            7 100  0.31 0.46    0.0    0.26 0.00  0.0   1.0   1.0
+    ## AGE3            8 100  0.36 0.48    0.0    0.32 0.00  0.0   1.0   1.0
+    ## HEARTRATEGRP    9 100  2.01 0.80    2.0    2.01 1.48  1.0   3.0   2.0
+    ## HEART1         10 100  0.31 0.46    0.0    0.26 0.00  0.0   1.0   1.0
+    ## HEART2         11 100  0.37 0.49    0.0    0.34 0.00  0.0   1.0   1.0
+    ## HEART3         12 100  0.32 0.47    0.0    0.28 0.00  0.0   1.0   1.0
     ##               skew kurtosis   se
     ## Gender*       0.04    -2.02 0.05
     ## Age          -0.23    -0.32 0.64
     ## HeartRate     0.09    -0.38 0.53
     ## Temperature   0.38     0.22 0.10
-    ## AGEGRP       -0.13    -0.35 0.07
-    ## AGE1          5.43    27.74 0.02
-    ## AGE2          0.86    -1.27 0.05
-    ## AGE3         -0.08    -2.01 0.05
-    ## AGE4          1.93     1.75 0.04
-    ## HEARTRATEGRP  0.11    -0.50 0.06
+    ## AGEGRP       -0.06    -1.58 0.08
+    ## AGE1          0.71    -1.51 0.05
+    ## AGE2          0.81    -1.36 0.05
+    ## AGE3          0.57    -1.69 0.05
+    ## HEARTRATEGRP -0.02    -1.44 0.08
     ## HEART1        0.81    -1.36 0.05
-    ## HEART2       -0.40    -1.86 0.05
-    ## HEART3        2.82     6.03 0.03
+    ## HEART2        0.53    -1.74 0.05
+    ## HEART3        0.76    -1.44 0.05
 
 ### Plot variables
 
@@ -612,38 +601,61 @@ source("210_Additional regression models.R", echo = TRUE)
     ## 
     ## 
     ## > model3 <- lm(Temperature ~ Gender + AGE1 + AGE2 + 
-    ## +     AGE3 + AGE4, data = BodyTemperature)
+    ## +     AGE3, data = BodyTemperature)
     ## 
     ## > summary(model3)
     ## 
     ## Call:
-    ## lm(formula = Temperature ~ Gender + AGE1 + AGE2 + AGE3 + AGE4, 
-    ##     data = BodyTemperature)
+    ## lm(formula = Temperature ~ Gender + AGE1 + AGE2 + AGE3, data = BodyTemperature)
     ## 
     ## Residuals:
-    ##     Min      1Q  Median      3Q     Max 
-    ## -2.0318 -0.6498 -0.1039  0.5891  3.0682 
+    ##      Min       1Q   Median       3Q      Max 
+    ## -1.77934 -0.60378  0.02488  0.54433  2.84433 
     ## 
     ## Coefficients: (1 not defined because of singularities)
     ##             Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)  98.2318     0.2654 370.079   <2e-16 ***
-    ## GenderM      -0.2721     0.1905  -1.428   0.1566    
-    ## AGE1          1.1163     0.6012   1.857   0.0664 .  
-    ## AGE2          0.1885     0.3006   0.627   0.5320    
-    ## AGE3          0.2721     0.2785   0.977   0.3311    
-    ## AGE4              NA         NA      NA       NA    
+    ## (Intercept)  98.1946     0.1890 519.452   <2e-16 ***
+    ## GenderM      -0.2152     0.1896  -1.135    0.259    
+    ## AGE1          0.2825     0.2274   1.242    0.217    
+    ## AGE2          0.4763     0.2322   2.051    0.043 *  
+    ## AGE3              NA         NA      NA       NA    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
-    ## Residual standard error: 0.9497 on 95 degrees of freedom
-    ## Multiple R-squared:  0.05476,    Adjusted R-squared:  0.01496 
-    ## F-statistic: 1.376 on 4 and 95 DF,  p-value: 0.2481
+    ## Residual standard error: 0.9418 on 96 degrees of freedom
+    ## Multiple R-squared:  0.06058,    Adjusted R-squared:  0.03123 
+    ## F-statistic: 2.064 on 3 and 96 DF,  p-value: 0.1101
     ## 
     ## 
-    ## > model4 <- lm(Temperature ~ Gender + HEART1 + HEART2 + 
-    ## +     HEART3, data = BodyTemperature)
+    ## > model4 <- lm(Temperature ~ Gender + AGE1 + AGE2, data = BodyTemperature)
     ## 
     ## > summary(model4)
+    ## 
+    ## Call:
+    ## lm(formula = Temperature ~ Gender + AGE1 + AGE2, data = BodyTemperature)
+    ## 
+    ## Residuals:
+    ##      Min       1Q   Median       3Q      Max 
+    ## -1.77934 -0.60378  0.02488  0.54433  2.84433 
+    ## 
+    ## Coefficients:
+    ##             Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)  98.1946     0.1890 519.452   <2e-16 ***
+    ## GenderM      -0.2152     0.1896  -1.135    0.259    
+    ## AGE1          0.2825     0.2274   1.242    0.217    
+    ## AGE2          0.4763     0.2322   2.051    0.043 *  
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.9418 on 96 degrees of freedom
+    ## Multiple R-squared:  0.06058,    Adjusted R-squared:  0.03123 
+    ## F-statistic: 2.064 on 3 and 96 DF,  p-value: 0.1101
+    ## 
+    ## 
+    ## > model5 <- lm(Temperature ~ Gender + HEART1 + HEART2 + 
+    ## +     HEART3, data = BodyTemperature)
+    ## 
+    ## > summary(model5)
     ## 
     ## Call:
     ## lm(formula = Temperature ~ Gender + HEART1 + HEART2 + HEART3, 
@@ -651,30 +663,133 @@ source("210_Additional regression models.R", echo = TRUE)
     ## 
     ## Residuals:
     ##      Min       1Q   Median       3Q      Max 
-    ## -2.27412 -0.46377  0.01093  0.56123  3.06123 
+    ## -2.18635 -0.50638  0.01182  0.57598  2.46716 
     ## 
     ## Coefficients: (1 not defined because of singularities)
     ##             Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)  99.5184     0.3130 317.953  < 2e-16 ***
-    ## GenderM      -0.3443     0.1754  -1.963  0.05254 .  
-    ## HEART1       -1.4791     0.3319  -4.456 2.26e-05 ***
-    ## HEART2       -0.9353     0.3130  -2.988  0.00356 ** 
+    ## (Intercept)  99.1864     0.1742 569.389  < 2e-16 ***
+    ## GenderM      -0.3535     0.1669  -2.118   0.0367 *  
+    ## HEART1       -1.1428     0.2100  -5.442 4.03e-07 ***
+    ## HEART2       -0.8888     0.2011  -4.419 2.61e-05 ***
     ## HEART3            NA         NA      NA       NA    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
-    ## Residual standard error: 0.871 on 96 degrees of freedom
-    ## Multiple R-squared:  0.1966, Adjusted R-squared:  0.1715 
-    ## F-statistic: 7.829 on 3 and 96 DF,  p-value: 9.948e-05
+    ## Residual standard error: 0.8301 on 96 degrees of freedom
+    ## Multiple R-squared:  0.2703, Adjusted R-squared:  0.2475 
+    ## F-statistic: 11.85 on 3 and 96 DF,  p-value: 1.136e-06
     ## 
     ## 
-    ## > coefplot(model4)
+    ## > model6 <- lm(Temperature ~ Gender + AGE1 + AGE2 + 
+    ## +     HEART1 + HEART2, data = BodyTemperature)
+    ## 
+    ## > summary(model6)
+    ## 
+    ## Call:
+    ## lm(formula = Temperature ~ Gender + AGE1 + AGE2 + HEART1 + HEART2, 
+    ##     data = BodyTemperature)
+    ## 
+    ## Residuals:
+    ##      Min       1Q   Median       3Q      Max 
+    ## -2.19215 -0.52057 -0.03705  0.48214  2.06131 
+    ## 
+    ## Coefficients:
+    ##             Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)  98.9196     0.1993 496.219  < 2e-16 ***
+    ## GenderM      -0.3029     0.1613  -1.878  0.06348 .  
+    ## AGE1          0.2725     0.1927   1.414  0.16056    
+    ## AGE2          0.6219     0.1982   3.138  0.00227 ** 
+    ## HEART1       -1.2188     0.2038  -5.979 4.02e-08 ***
+    ## HEART2       -0.9354     0.1941  -4.819 5.54e-06 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.7981 on 94 degrees of freedom
+    ## Multiple R-squared:  0.3395, Adjusted R-squared:  0.3044 
+    ## F-statistic: 9.664 on 5 and 94 DF,  p-value: 1.809e-07
+    ## 
+    ## 
+    ## > summary(model1)$adj.r.squared
+    ## [1] 0.2328827
+    ## 
+    ## > summary(model2)$adj.r.squared
+    ## [1] 0.2092705
+    ## 
+    ## > summary(model3)$adj.r.squared
+    ## [1] 0.03122806
+    ## 
+    ## > summary(model4)$adj.r.squared
+    ## [1] 0.03122806
+    ## 
+    ## > summary(model5)$adj.r.squared
+    ## [1] 0.2474747
+    ## 
+    ## > summary(model6)$adj.r.squared
+    ## [1] 0.3043869
+    ## 
+    ## > coefplot(model6)
 
 ![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
     ## 
     ## > layout(matrix(c(1, 2, 3, 4), 2, 2))
     ## 
-    ## > plot(model3, main = "Linear Regression Model")
+    ## > plot(model4, main = "Linear Regression Model")
 
 ![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+
+    ## 
+    ## > gvmodel <- gvlma(model6)
+    ## 
+    ## > summary(model6)
+    ## 
+    ## Call:
+    ## lm(formula = Temperature ~ Gender + AGE1 + AGE2 + HEART1 + HEART2, 
+    ##     data = BodyTemperature)
+    ## 
+    ## Residuals:
+    ##      Min       1Q   Median       3Q      Max 
+    ## -2.19215 -0.52057 -0.03705  0.48214  2.06131 
+    ## 
+    ## Coefficients:
+    ##             Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)  98.9196     0.1993 496.219  < 2e-16 ***
+    ## GenderM      -0.3029     0.1613  -1.878  0.06348 .  
+    ## AGE1          0.2725     0.1927   1.414  0.16056    
+    ## AGE2          0.6219     0.1982   3.138  0.00227 ** 
+    ## HEART1       -1.2188     0.2038  -5.979 4.02e-08 ***
+    ## HEART2       -0.9354     0.1941  -4.819 5.54e-06 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.7981 on 94 degrees of freedom
+    ## Multiple R-squared:  0.3395, Adjusted R-squared:  0.3044 
+    ## F-statistic: 9.664 on 5 and 94 DF,  p-value: 1.809e-07
+    ## 
+    ## 
+    ## > gvmodel
+    ## 
+    ## Call:
+    ## lm(formula = Temperature ~ Gender + AGE1 + AGE2 + HEART1 + HEART2, 
+    ##     data = BodyTemperature)
+    ## 
+    ## Coefficients:
+    ## (Intercept)      GenderM         AGE1         AGE2       HEART1  
+    ##     98.9196      -0.3029       0.2725       0.6219      -1.2188  
+    ##      HEART2  
+    ##     -0.9354  
+    ## 
+    ## 
+    ## ASSESSMENT OF THE LINEAR MODEL ASSUMPTIONS
+    ## USING THE GLOBAL TEST ON 4 DEGREES-OF-FREEDOM:
+    ## Level of Significance =  0.05 
+    ## 
+    ## Call:
+    ##  gvlma(x = model6) 
+    ## 
+    ##                      Value p-value                Decision
+    ## Global Stat        1.11111  0.8925 Assumptions acceptable.
+    ## Skewness           0.35181  0.5531 Assumptions acceptable.
+    ## Kurtosis           0.02101  0.8847 Assumptions acceptable.
+    ## Link Function      0.12460  0.7241 Assumptions acceptable.
+    ## Heteroscedasticity 0.61368  0.4334 Assumptions acceptable.
