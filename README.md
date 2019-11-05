@@ -709,6 +709,33 @@ source("210_Additional regression models.R", echo = TRUE)
     ## F-statistic: 9.664 on 5 and 94 DF,  p-value: 1.809e-07
     ## 
     ## 
+    ## > model7 <- lm(Temperature ~ AGE1 + AGE2 + HEART1 + 
+    ## +     HEART2, data = BodyTemperature)
+    ## 
+    ## > summary(model7)
+    ## 
+    ## Call:
+    ## lm(formula = Temperature ~ AGE1 + AGE2 + HEART1 + HEART2, data = BodyTemperature)
+    ## 
+    ## Residuals:
+    ##      Min       1Q   Median       3Q      Max 
+    ## -2.02704 -0.44331 -0.05913  0.47404  2.06697 
+    ## 
+    ## Coefficients:
+    ##             Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)  98.7330     0.1751 563.854  < 2e-16 ***
+    ## AGE1          0.2940     0.1949   1.509  0.13471    
+    ## AGE2          0.6593     0.1998   3.300  0.00136 ** 
+    ## HEART1       -1.1897     0.2059  -5.777 9.59e-08 ***
+    ## HEART2       -0.9071     0.1961  -4.626 1.18e-05 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.8086 on 95 degrees of freedom
+    ## Multiple R-squared:  0.3147, Adjusted R-squared:  0.2859 
+    ## F-statistic: 10.91 on 4 and 95 DF,  p-value: 2.547e-07
+    ## 
+    ## 
     ## > summary(model1)$adj.r.squared
     ## [1] 0.2328827
     ## 
@@ -726,6 +753,9 @@ source("210_Additional regression models.R", echo = TRUE)
     ## 
     ## > summary(model6)$adj.r.squared
     ## [1] 0.3043869
+    ## 
+    ## > summary(model7)$adj.r.squared
+    ## [1] 0.2858838
     ## 
     ## > coefplot(model6)
 

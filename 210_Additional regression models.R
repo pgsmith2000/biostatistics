@@ -23,12 +23,17 @@ summary(model5)
 model6 <- lm(Temperature ~ Gender + AGE1 + AGE2 + HEART1 + HEART2 , data=BodyTemperature)
 summary(model6)
 
+# take out the Gender
+model7 <- lm(Temperature ~ AGE1 + AGE2 + HEART1 + HEART2 , data=BodyTemperature)
+summary(model7)
+
 summary(model1)$adj.r.squared
 summary(model2)$adj.r.squared
 summary(model3)$adj.r.squared
 summary(model4)$adj.r.squared
 summary(model5)$adj.r.squared
 summary(model6)$adj.r.squared
+summary(model7)$adj.r.squared
 
 # look at a coefficient plot
 coefplot(model6)
