@@ -405,17 +405,17 @@ source("100_Plot individual variables.R", echo = TRUE)
     ## > p2 <- ggplot(BodyTemperature, aes(Age))
     ## 
     ## > p2 <- p2 + geom_histogram(aes(color = Age), color = "black", 
-    ## +     fill = "#0CBDBD") + theme_minimal() + labs(title = "Histogram of Age")
+    ## +     fill = "#0CBDBD") + theme_minimal() + labs(title = "Participant Age")
     ## 
     ## > p3 <- ggplot(BodyTemperature, aes(HeartRate))
     ## 
     ## > p3 <- p3 + geom_histogram(aes(color = HeartRate), 
-    ## +     color = "black", fill = "#0CBDBD") + theme_minimal() + labs(title = "Histogram of HeartRate ..." ... [TRUNCATED] 
+    ## +     color = "black", fill = "#0CBDBD") + theme_minimal() + labs(title = "HeartRate")
     ## 
     ## > p4 <- ggplot(BodyTemperature, aes(Temperature))
     ## 
     ## > p4 <- p4 + geom_histogram(aes(color = Temperature), 
-    ## +     color = "black", fill = "#0CBDBD") + theme_minimal() + labs(title = "Histogram of Tempera ..." ... [TRUNCATED] 
+    ## +     color = "black", fill = "#0CBDBD") + theme_minimal() + labs(title = "Body Temperature")
     ## 
     ## > grid.arrange(p1, p2, p3, p4, nrow = 2, ncol = 2)
 
