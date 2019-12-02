@@ -1,7 +1,7 @@
 Analyses with Data from Biostatistics With R
 ================
 Paul G. Smith
-First created on Nov 1, 2019. Updated on Nov 05, 2019
+First created on Nov 1, 2019. Updated on Dec 02, 2019
 
 ## Analyses with Data from Biostatistics With R by Babak Shahbaba
 
@@ -62,14 +62,14 @@ source("Dependencies.R", echo = TRUE)
     ## 
     ## > library(tidyverse)
 
-    ## -- Attaching packages ---------------------------------------------------------------------------- tidyverse 1.2.1 --
+    ## -- Attaching packages --------------------------- tidyverse 1.2.1 --
 
     ## v tibble  2.1.3     v purrr   0.3.3
     ## v tidyr   1.0.0     v dplyr   0.8.3
     ## v readr   1.3.1     v stringr 1.4.0
     ## v tibble  2.1.3     v forcats 0.4.0
 
-    ## -- Conflicts ------------------------------------------------------------------------------- tidyverse_conflicts() --
+    ## -- Conflicts ------------------------------ tidyverse_conflicts() --
     ## x psych::%+%()        masks ggplot2::%+%()
     ## x psych::alpha()      masks ggplot2::alpha(), scales::alpha()
     ## x readr::col_factor() masks scales::col_factor()
@@ -324,20 +324,20 @@ source("002_Create data dictionary.R", echo = TRUE)
     ##         Mean   :37.62   Mean   :73.66   Mean   : 98.33   Mean   :2.03  
     ##         3rd Qu.:42.00   3rd Qu.:78.00   3rd Qu.: 98.90   3rd Qu.:3.00  
     ##         Max.   :50.00   Max.   :87.00   Max.   :101.30   Max.   :3.00  
-    ##       AGE1           AGE2           AGE3       HEARTRATEGRP 
-    ##  Min.   :0.00   Min.   :0.00   Min.   :0.00   Min.   :1.00  
-    ##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0.00   1st Qu.:1.00  
-    ##  Median :0.00   Median :0.00   Median :0.00   Median :2.00  
-    ##  Mean   :0.33   Mean   :0.31   Mean   :0.36   Mean   :2.01  
-    ##  3rd Qu.:1.00   3rd Qu.:1.00   3rd Qu.:1.00   3rd Qu.:3.00  
-    ##  Max.   :1.00   Max.   :1.00   Max.   :1.00   Max.   :3.00  
-    ##      HEART1         HEART2         HEART3    
-    ##  Min.   :0.00   Min.   :0.00   Min.   :0.00  
-    ##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0.00  
-    ##  Median :0.00   Median :0.00   Median :0.00  
-    ##  Mean   :0.31   Mean   :0.37   Mean   :0.32  
-    ##  3rd Qu.:1.00   3rd Qu.:1.00   3rd Qu.:1.00  
-    ##  Max.   :1.00   Max.   :1.00   Max.   :1.00  
+    ##       AGE1           AGE2           AGE3       HEARTRATEGRP      HEART1    
+    ##  Min.   :0.00   Min.   :0.00   Min.   :0.00   Min.   :1.00   Min.   :0.00  
+    ##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0.00   1st Qu.:1.00   1st Qu.:0.00  
+    ##  Median :0.00   Median :0.00   Median :0.00   Median :2.00   Median :0.00  
+    ##  Mean   :0.33   Mean   :0.31   Mean   :0.36   Mean   :2.01   Mean   :0.31  
+    ##  3rd Qu.:1.00   3rd Qu.:1.00   3rd Qu.:1.00   3rd Qu.:3.00   3rd Qu.:1.00  
+    ##  Max.   :1.00   Max.   :1.00   Max.   :1.00   Max.   :3.00   Max.   :1.00  
+    ##      HEART2         HEART3    
+    ##  Min.   :0.00   Min.   :0.00  
+    ##  1st Qu.:0.00   1st Qu.:0.00  
+    ##  Median :0.00   Median :0.00  
+    ##  Mean   :0.37   Mean   :0.32  
+    ##  3rd Qu.:1.00   3rd Qu.:1.00  
+    ##  Max.   :1.00   Max.   :1.00  
     ## 
     ## > sapply(BodyTemperature[2:4], function(x) c(`Stand dev` = sd(x), 
     ## +     Mean = mean(x, na.rm = TRUE), n = length(x), Median = median(x), 
@@ -359,32 +359,32 @@ source("002_Create data dictionary.R", echo = TRUE)
     ## +     append = TRUE)
     ## 
     ## > psych::describe(BodyTemperature)
-    ##              vars   n  mean   sd median trimmed  mad  min   max range
-    ## Gender*         1 100  1.49 0.50    1.0    1.49 0.00  1.0   2.0   1.0
-    ## Age             2 100 37.62 6.43   37.0   37.76 5.93 21.0  50.0  29.0
-    ## HeartRate       3 100 73.66 5.31   73.0   73.60 5.93 61.0  87.0  26.0
-    ## Temperature     4 100 98.33 0.96   98.3   98.29 0.89 96.2 101.3   5.1
-    ## AGEGRP          5 100  2.03 0.83    2.0    2.04 1.48  1.0   3.0   2.0
-    ## AGE1            6 100  0.33 0.47    0.0    0.29 0.00  0.0   1.0   1.0
-    ## AGE2            7 100  0.31 0.46    0.0    0.26 0.00  0.0   1.0   1.0
-    ## AGE3            8 100  0.36 0.48    0.0    0.32 0.00  0.0   1.0   1.0
-    ## HEARTRATEGRP    9 100  2.01 0.80    2.0    2.01 1.48  1.0   3.0   2.0
-    ## HEART1         10 100  0.31 0.46    0.0    0.26 0.00  0.0   1.0   1.0
-    ## HEART2         11 100  0.37 0.49    0.0    0.34 0.00  0.0   1.0   1.0
-    ## HEART3         12 100  0.32 0.47    0.0    0.28 0.00  0.0   1.0   1.0
-    ##               skew kurtosis   se
-    ## Gender*       0.04    -2.02 0.05
-    ## Age          -0.23    -0.32 0.64
-    ## HeartRate     0.09    -0.38 0.53
-    ## Temperature   0.38     0.22 0.10
-    ## AGEGRP       -0.06    -1.58 0.08
-    ## AGE1          0.71    -1.51 0.05
-    ## AGE2          0.81    -1.36 0.05
-    ## AGE3          0.57    -1.69 0.05
-    ## HEARTRATEGRP -0.02    -1.44 0.08
-    ## HEART1        0.81    -1.36 0.05
-    ## HEART2        0.53    -1.74 0.05
-    ## HEART3        0.76    -1.44 0.05
+    ##              vars   n  mean   sd median trimmed  mad  min   max range  skew
+    ## Gender*         1 100  1.49 0.50    1.0    1.49 0.00  1.0   2.0   1.0  0.04
+    ## Age             2 100 37.62 6.43   37.0   37.76 5.93 21.0  50.0  29.0 -0.23
+    ## HeartRate       3 100 73.66 5.31   73.0   73.60 5.93 61.0  87.0  26.0  0.09
+    ## Temperature     4 100 98.33 0.96   98.3   98.29 0.89 96.2 101.3   5.1  0.38
+    ## AGEGRP          5 100  2.03 0.83    2.0    2.04 1.48  1.0   3.0   2.0 -0.06
+    ## AGE1            6 100  0.33 0.47    0.0    0.29 0.00  0.0   1.0   1.0  0.71
+    ## AGE2            7 100  0.31 0.46    0.0    0.26 0.00  0.0   1.0   1.0  0.81
+    ## AGE3            8 100  0.36 0.48    0.0    0.32 0.00  0.0   1.0   1.0  0.57
+    ## HEARTRATEGRP    9 100  2.01 0.80    2.0    2.01 1.48  1.0   3.0   2.0 -0.02
+    ## HEART1         10 100  0.31 0.46    0.0    0.26 0.00  0.0   1.0   1.0  0.81
+    ## HEART2         11 100  0.37 0.49    0.0    0.34 0.00  0.0   1.0   1.0  0.53
+    ## HEART3         12 100  0.32 0.47    0.0    0.28 0.00  0.0   1.0   1.0  0.76
+    ##              kurtosis   se
+    ## Gender*         -2.02 0.05
+    ## Age             -0.32 0.64
+    ## HeartRate       -0.38 0.53
+    ## Temperature      0.22 0.10
+    ## AGEGRP          -1.58 0.08
+    ## AGE1            -1.51 0.05
+    ## AGE2            -1.36 0.05
+    ## AGE3            -1.69 0.05
+    ## HEARTRATEGRP    -1.44 0.08
+    ## HEART1          -1.36 0.05
+    ## HEART2          -1.74 0.05
+    ## HEART3          -1.44 0.05
 
 ### Plot variables
 
@@ -844,10 +844,8 @@ source("210_Additional regression models.R", echo = TRUE)
     ##     data = BodyTemperature)
     ## 
     ## Coefficients:
-    ## (Intercept)      GenderM         AGE1         AGE2       HEART1  
-    ##     98.9196      -0.3029       0.2725       0.6219      -1.2188  
-    ##      HEART2  
-    ##     -0.9354  
+    ## (Intercept)      GenderM         AGE1         AGE2       HEART1       HEART2  
+    ##     98.9196      -0.3029       0.2725       0.6219      -1.2188      -0.9354  
     ## 
     ## 
     ## ASSESSMENT OF THE LINEAR MODEL ASSUMPTIONS
